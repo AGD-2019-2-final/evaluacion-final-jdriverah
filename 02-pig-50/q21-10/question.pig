@@ -30,3 +30,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 Y= FOREACH u GENERATE firstname, color AS color;
 X = FILTER Y BY (color matches '.*(blue|green).*');
+STORE X INTO 'output';
