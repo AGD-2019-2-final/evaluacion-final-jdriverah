@@ -25,4 +25,5 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
-
+Y= FOREACH u GENERATE REGEX_EXTRACT(birthday, '\\d{4}-(\\d{2})-(\\d{2})', 1);
+STORE Y INTO 'output';
