@@ -6,18 +6,17 @@
 -- 
 -- Escriba el código equivalente a la siguiente consulta SQL.
 -- 
---    SELECT
---        firstname,
---        color
+--    SELECT 
+--        firstname, 
+--        color 
 --    FROM 
---        u 
---    WHERE 
---        color REGEXP '^b';
+--        u
+--    WHERE color NOT IN ('blue','black');
 -- 
 -- Escriba el resultado a la carpeta `output` del directorio actual.
 -- 
 fs -rm -f -r output;
--- 
+--
 u = LOAD 'data.csv' USING PigStorage(',') 
     AS (id:int, 
         firstname:CHARARRAY, 
@@ -25,6 +24,10 @@ u = LOAD 'data.csv' USING PigStorage(',')
         birthday:CHARARRAY, 
         color:CHARARRAY, 
         quantity:INT);
---        
+--
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+
+Y= FOREACH u GENERATE color AS color;
+X = FILTER Y BY NOT ((color=='blue') OR (color=='black'));
+STORE X INTO 'output'USING PigStorage (',');
