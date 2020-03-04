@@ -7,17 +7,14 @@
 -- Escriba el código equivalente a la siguiente consulta SQL.
 -- 
 --    SELECT 
---        firstname,
---        color 
+--        REGEX_EXTRACT(birthday, '....-..-..', 2) 
 --    FROM 
---        u 
---    WHERE 
---        color REGEXP '[aeiou]$';
+--        u;
 -- 
 -- Escriba el resultado a la carpeta `output` del directorio actual.
 -- 
 fs -rm -f -r output;
--- 
+--
 u = LOAD 'data.csv' USING PigStorage(',') 
     AS (id:int, 
         firstname:CHARARRAY, 
@@ -28,4 +25,5 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
-
+Y= FOREACH u GENERATE REGEX_EXTRACT(birthday, '\\d{4}-(\\d{2})-(\\d{2})', 1);
+STORE Y INTO 'output';
