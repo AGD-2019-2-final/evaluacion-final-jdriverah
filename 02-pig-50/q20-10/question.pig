@@ -28,3 +28,7 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+Y= FOREACH u GENERATE firstname, color AS color;
+X = FILTER Y BY NOT (color matches '.*b.*');
+STORE X INTO 'output'USING PigStorage (',');
+
