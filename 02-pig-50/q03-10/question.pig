@@ -15,6 +15,6 @@ b = FOREACH A GENERATE f3;
 c = ORDER b BY f3;
 z = LIMIT c 5;
 
-STORE a INTO 'output';
+STORE z INTO 'output';
 
 
