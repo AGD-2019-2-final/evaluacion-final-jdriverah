@@ -34,4 +34,4 @@ A = LOAD 'data.csv' USING PigStorage(',')
 B= FOREACH A GENERATE CONCAT(f1,'@',f2) AS b1;
 DUMP B;
 
-STORE N INTO 'output';
+STORE B INTO 'output';
