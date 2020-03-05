@@ -45,7 +45,7 @@ X = FOREACH A GENERATE birthday,
 		       ToString(my_date,'dd') as DD,
 		       ToString(my_date,'d') as D,
 		       ToString(my_date,'e') as E,
-		       ToString(my_date,'EEEE') as EEEE,
+		       ToString(my_date,'EEEE') as EEEE;
 Y= FOREACH X GENERATE birthday, DD, D, CASE E WHEN '1' THEN 'lun'
          	       WHEN '2' THEN 'mar'
                        WHEN '3' THEN 'mié'
