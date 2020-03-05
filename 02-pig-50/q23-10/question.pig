@@ -30,5 +30,5 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 Y= FOREACH u GENERATE firstname, color AS color;
 X = FILTER Y BY (color matches '.*[aeiou]$*');
-STORE X INTO 'output'USING PigStorage (',');
+STORE X INTO 'output' USING PigStorage (',');
 
