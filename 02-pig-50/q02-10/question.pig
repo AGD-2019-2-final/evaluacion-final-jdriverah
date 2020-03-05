@@ -15,6 +15,6 @@ b = ORDER A BY f1, f3;
 
 
 
-STORE a INTO 'output';
+STORE b INTO 'output';
 
 
