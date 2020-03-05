@@ -20,5 +20,5 @@ c = GROUP B BY f1;
 a = FOREACH c GENERATE group, COUNT($1);
 DUMP a;
 
-STORE B INTO 'output'; 
+STORE a INTO 'output'; 
 
