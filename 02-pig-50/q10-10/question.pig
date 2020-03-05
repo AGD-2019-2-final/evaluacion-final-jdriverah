@@ -28,7 +28,7 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 
 D = FOREACH u GENERATE surname, SIZE(surname);
-Z = ORDER A BY $1 DESC, $0;
-O = LIMIT B 5;
+Z = ORDER D BY $1 DESC, $0;
+O = LIMIT Z 5;
 
 STORE O INTO 'output' USING PigStorage (','); 
