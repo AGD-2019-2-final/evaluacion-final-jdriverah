@@ -22,4 +22,4 @@ D= FOREACH C GENERATE (b2,$1) AS c1;
 E= GROUP D BY c1;
 F= FOREACH E GENERATE group, COUNT($1);
 
-STORE N INTO 'output';
+STORE F INTO 'output';
