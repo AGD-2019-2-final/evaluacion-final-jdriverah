@@ -27,6 +27,6 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
-Y= FOREACH u GENERATE color AS color, firstname AS firstname;
+Y= FOREACH u GENERATE firstname AS firstname, color AS color;
 X = FILTER Y BY (color =='blue') AND (firstname > 'Z');
 STORE X INTO 'output';
