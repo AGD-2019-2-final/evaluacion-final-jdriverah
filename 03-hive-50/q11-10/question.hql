@@ -2,9 +2,8 @@
 -- Pregunta
 -- ===========================================================================
 --
--- Escriba una consulta que calcule la cantidad de registros por clave de la 
--- columna 3. En otras palabras, cuántos registros hay que tengan la clave 
--- `aaa`?
+-- Escriba una consulta que retorne la primera columna, la cantidad de 
+-- elementos en la columna 2 y la cantidad de elementos en la columna 3
 --
 -- Escriba el resultado a la carpeta `output` de directorio de trabajo.
 --
@@ -28,11 +27,8 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 STORED AS TEXTFIL
 
 SELECT 
-    key,
-    COUNT(key)
+    c1,
+    SIZE(c2),
+    SIZE(c3)
 FROM 
-    t0
-LATERAL VIEW 
-    explode(c3) t0
-GROUP BY
-    key;
+    t0;
