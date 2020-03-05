@@ -61,7 +61,7 @@ Y= FOREACH X GENERATE birthday, DD, D, CASE E WHEN '1' THEN 'lun'
                        WHEN '5' THEN 'viernes'
                        WHEN '6' THEN 'sabádo'
                        WHEN '7' THEN 'domingo'
-                       END as SEM,
+                       END as SEM;
 
 STORE Y INTO 'output' USING PigStorage (',');
 
