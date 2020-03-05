@@ -41,5 +41,5 @@ u = LOAD 'data.csv' USING PigStorage(',')
 
 X= FOREACH u GENERATE surname, UPPER(surname), LOWER(surname);
 Y= ORDER X BY $0;
-STORE Y INTO 'output'USING PigStorage (','); 
+STORE Y INTO 'output' USING PigStorage (','); 
 
